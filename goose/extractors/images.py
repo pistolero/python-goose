@@ -215,7 +215,7 @@ class ImageExtractor(BaseExtractor):
         # check if we have a local image
         # in order to add more information
         # on the Image object
-        local_image = self.get_local_image(image.src)
+        local_image = self.get_local_image(image.src) if self.config.enable_image_fetching else None
         if local_image:
             image.bytes = local_image.bytes
             image.height = local_image.height
